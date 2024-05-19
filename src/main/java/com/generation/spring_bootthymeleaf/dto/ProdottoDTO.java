@@ -4,7 +4,9 @@ import java.math.BigDecimal;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class ProdottoDTO {
@@ -18,7 +20,8 @@ public class ProdottoDTO {
 	@NotEmpty(message = "La categoria é richiesta")
 	private String categoria;
 	
-	@NotEmpty(message = "Il prezzo é richiesto")
+	@NotNull(message = "Il prezzo non può essere nullo")
+    @DecimalMin(value = "0.0", inclusive = false, message = "Il prezzo deve essere maggiore di zero")
 	private BigDecimal prezzo;
 	
 	//IMPOSTO LA LUNGHEZZA MINIMA E MASSIMA DELLA DESCRIZIONE

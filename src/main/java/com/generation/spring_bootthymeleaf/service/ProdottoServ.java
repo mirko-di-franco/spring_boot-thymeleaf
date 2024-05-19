@@ -23,5 +23,11 @@ public class ProdottoServ {
 	}
 	
 	
+	public Prodotto aggiungiOModifica(Prodotto prodotto) {
+		Prodotto newProdotto = prodottoRepo.save(prodotto);
+		return null;
+	}
+	
+	
 	
 }
