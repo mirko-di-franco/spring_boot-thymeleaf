@@ -1,6 +1,7 @@
 package com.generation.spring_bootthymeleaf.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,11 @@ public class ProdottoServ {
 		return null;
 	}
 	
+	
+	public Optional<Prodotto> ricercaProdotto(int idProdotto){
+		Optional<Prodotto> prodotto = prodottoRepo.findById(idProdotto);
+		return prodotto;
+	}
 	
 	
 }
