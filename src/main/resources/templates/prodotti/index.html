@@ -11,7 +11,7 @@
 	<div class="container">
 		<h1 class="text-center my-4">Prodotti</h1>
 		
-		<a class="btn btn-primary" href="/prodotti/crea">Crea Prodotto</a>
+		<a class="btn btn-primary" href="/api/prodotti/crea">Crea Prodotto</a>
 		
 		
 		
@@ -43,7 +43,7 @@
 					<td th:text="${prodotto.createAt.toString().substring(0, 10)}"></td>
 					<td style="white-space:nowrap">
 						<a class="btn btn-primary btn-sm" th:href="@{/prodotti/edit(id=${prodotto.id})}">Modifica</a>
-						<a class="btn btn-primary btn-sm" th:href="@{/prodotti/delete(id=${prodotto.id})}" onclick="return confirm('Sicuro di voler cancellare il prodotto?')">Elimina</a>
+						<a class="btn btn-danger btn-sm" th:href="@{/prodotti/delete(id=${prodotto.id})}" onclick="return confirm('Sicuro di voler cancellare il prodotto?')">Elimina</a>
 					</td>
 				</tr>
 			</tbody>

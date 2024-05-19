@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.generation.spring_bootthymeleaf.dto.ProdottoDTO;
 import com.generation.spring_bootthymeleaf.entity.Prodotto;
 import com.generation.spring_bootthymeleaf.service.ProdottoServ;
 
@@ -29,6 +30,15 @@ public class ProdottoController {
 		model.addAttribute("prodotti", prodotti);
 		//mi collego alla pagina index.html che si trova dentro la cartella template/prodotti
 		return "prodotti/index";
+	}
+	
+	
+	//mi reinderizza alla pagina per creare un nuovo prodotto
+	@GetMapping("/crea")
+	public String paginaCrezioneProdotto(Model model) {
+		ProdottoDTO prodottoDTO = new ProdottoDTO();
+		model.addAttribute("prodottoDTO", prodottoDTO);
+		return "prodotti/creazioneProdotto";
 	}
 
 }
