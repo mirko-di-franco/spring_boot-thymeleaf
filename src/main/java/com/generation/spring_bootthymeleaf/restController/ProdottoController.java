@@ -200,4 +200,32 @@ public class ProdottoController {
 		
 		return "redirect:/api/prodotti";
 	}
+	
+	
+	@GetMapping("/delete")
+	public String eliminazioneProdotto(@RequestParam int idProdotto) {
+		
+		try {
+			
+			Prodotto prodotto = prodottoServ.ricercaProdotto(idProdotto).get();
+			
+			//elimino l'immagine
+			Path percorsoImmagine = Paths.get("public/images/" + prodotto.getImmagine());
+			
+			try {
+				Files.delete(percorsoImmagine);
+			}catch(Exception e) {
+				System.out.println("Exception: "+ e.getMessage());
+			}
+			
+			//elimino il prodotto dal db
+			prodottoServ.eliminaProdotto(prodotto);
+			
+		}catch(Exception e) {
+			System.out.println("Exception: "+ e.getMessage());
+		}
+		
+		
+		return "redirect:/api/prodotti";
+	}
 }

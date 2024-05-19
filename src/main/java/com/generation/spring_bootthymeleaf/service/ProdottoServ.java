@@ -36,4 +36,10 @@ public class ProdottoServ {
 	}
 	
 	
+	
+	public void eliminaProdotto(Prodotto prodotto) {
+		prodottoRepo.delete(prodotto);
+	}
+	
+	
 }
